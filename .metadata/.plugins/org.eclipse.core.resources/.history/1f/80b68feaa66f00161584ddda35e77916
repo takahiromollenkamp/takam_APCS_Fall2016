@@ -1,0 +1,11 @@
+
+public class DoMath {
+
+	public static void main(String[] args) {
+		String x = Calculate.toMixedNum(7,2);
+		System.out.print(x);
+		
+
+	}
+
+}
