@@ -2,7 +2,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		double x = Calculate.max(5.2,2.5,7.1); 
+		int x = Calculate.max(5,2,7); 
 		System.out.print(x);
 		
 

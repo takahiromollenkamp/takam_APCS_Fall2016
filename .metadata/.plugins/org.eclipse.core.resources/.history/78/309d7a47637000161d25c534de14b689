@@ -2,8 +2,8 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		double x = Calculate.max(5.2,2.5,7.1); 
-		System.out.print(x);
+		String baba = Calculate.foil(2, 3, 6, -7, "x");
+		System.out.print(baba);
 		
 
 	}
