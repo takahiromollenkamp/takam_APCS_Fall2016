@@ -80,7 +80,7 @@ public class Calculate {
    public static double round2(double num){
 	   int a =(int) (num*100);
 	   double x;
-	   if ((a+.5)>= (num * 100)){
+	   if (a>= (num * 100)){
 	   x = a/100.0;
 	   return(x);
 	   } else{ x=(a+1)/100.0;
