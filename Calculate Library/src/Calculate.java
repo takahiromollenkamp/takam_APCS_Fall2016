@@ -87,5 +87,22 @@ public class Calculate {
 	   return (x);
 	   
 	   }
+   } 
+   public static double exponent(double a, int b){
+	   int c = 2;
+	   while (c<=b){
+		   a = a*a;
+		   c++;
+	   }
+	   return a;
    }
-}
+	   
+   public static int factorial(int a){
+	   int x =1;
+	   while (a>=1){
+		   x= a
+		   
+	   }
+	   
+   }
+} 
