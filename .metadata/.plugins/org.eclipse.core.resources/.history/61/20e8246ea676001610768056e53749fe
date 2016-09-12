@@ -2,8 +2,8 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		
-		System.out.print(Calculate.sqrt(16));
+		double x = Calculate.factorial(5); 
+		System.out.print(x);
 		
 
 	}

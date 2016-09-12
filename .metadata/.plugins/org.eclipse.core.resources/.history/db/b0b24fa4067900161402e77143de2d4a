@@ -133,7 +133,8 @@ public class Calculate {
 	   while ((a-x*x)>0.001){
 		   x=x+.001;
 	   }
-	   
-	   return x;
+	   int a= (100*(x));
+	   double c=.01*a;
+	   return c;
    }
 } 

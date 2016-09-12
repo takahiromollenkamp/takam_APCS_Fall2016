@@ -2,8 +2,8 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		
-		System.out.print(Calculate.sqrt(16));
+		;
+		System.out.print(Calculate.isPrime(7));
 		
 
 	}

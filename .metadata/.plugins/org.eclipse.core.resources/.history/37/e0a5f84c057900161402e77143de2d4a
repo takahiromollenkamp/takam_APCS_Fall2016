@@ -127,13 +127,4 @@ public class Calculate {
 	   }
 	   return d;
    }
-   public static double sqrt(double a){
-	   double x=0;
-	   
-	   while ((a-x*x)>0.001){
-		   x=x+.001;
-	   }
-	   
-	   return x;
-   }
 } 

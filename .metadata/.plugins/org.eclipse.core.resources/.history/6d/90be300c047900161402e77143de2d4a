@@ -121,19 +121,9 @@ public class Calculate {
 	   int d=Calculate.max(a,b);
 	   if (c==0){return  d;}
 	   while (c!=0){
-		   d=c;
 		   c=d%c;
-		      
+		   d=c;   
 	   }
 	   return d;
-   }
-   public static double sqrt(double a){
-	   double x=0;
-	   
-	   while ((a-x*x)>0.001){
-		   x=x+.001;
-	   }
-	   
-	   return x;
    }
 } 

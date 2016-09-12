@@ -130,8 +130,8 @@ public class Calculate {
    public static double sqrt(double a){
 	   double x=0;
 	   
-	   while ((a-x*x)>0.001){
-		   x=x+.001;
+	   while ((a-x*x)>0.0001){
+		   x=x+.0001;
 	   }
 	   
 	   return x;
