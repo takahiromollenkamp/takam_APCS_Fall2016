@@ -43,7 +43,6 @@ public class Calculate {
     }
     public static boolean isDivisibleBy(int a, int b){
     	int x = a%b;
-    	if(b==0){throw new IllegalArgumentException("Can't divide by 0");}
     	if(x==0){
     		return true;
     	}

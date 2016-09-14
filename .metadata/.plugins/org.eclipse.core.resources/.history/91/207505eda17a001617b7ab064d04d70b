@@ -43,7 +43,6 @@ public class Calculate {
     }
     public static boolean isDivisibleBy(int a, int b){
     	int x = a%b;
-    	if(b==0){throw new IllegalArgumentException("Can't divide by 0");}
     	if(x==0){
     		return true;
     	}
@@ -92,7 +91,6 @@ public class Calculate {
    public static double exponent(double a, int b){
 	   int c = 1;
 	   double d=1;
-	   if (b<1){throw new IllegalArgumentException("+ int only");}
 	   while (c<=b){
 		   d=d*a;
 		   c++;
@@ -102,7 +100,6 @@ public class Calculate {
 	   
    public static int factorial(int a){
 	   int x =1;
-	   if (a<1){throw new IllegalArgumentException("Positive integers only");}
 	   while (a>=1){
 		   x=x*a;
 		   a--;
@@ -132,7 +129,7 @@ public class Calculate {
    }
    public static double sqrt(double a){
 	   double x=0;
-	   if (a<0){throw new IllegalArgumentException("Can't square root negative numbers");}
+	   if (a<0){throw new IllegalArgumentException("damn you are a retard. Can't square root negative numbers");}
 	   while ((a-x*x)>0.001){
 		   x=x+.001;
 	   }
