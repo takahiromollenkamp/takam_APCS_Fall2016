@@ -136,8 +136,28 @@ public class Calculate {
 	   while ((a-x*x)>0.001){
 		   x=x+.001;
 	   }
-	   
+	   x=Calculate.round2(x);
 	   return x;
    }
+   public static String quadForm(int a, int b, int c){
+	   double x=Calculate.discriminant(a,b,c);
+	   if (x<0){
+		   return "\"no real roots\"";
+	   }
+	   if (x==0){
+		   double y=(-b)/(2*a);
+		   return "\""+ y + "\"";
+	   }
+	   if (x>0){
+		   double z = Calculate.sqrt(x);
+		   double ans1=(-b+z)/(2*a);
+		   double ans2=(-b-z)/(2*a);
+		   ans1=Calculate.round2(ans1);
+		   ans2=Calculate.round2(ans2);
+		   return "\""+ans2 + " and " + ans1 + "\"";
+	   }
+	   return "";
    
+
+}
 } 
