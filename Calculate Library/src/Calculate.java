@@ -1,4 +1,5 @@
 
+//Takahiro Mollenkamp 9/24/16
 public class Calculate {
 	
 	public static int square(int number){
