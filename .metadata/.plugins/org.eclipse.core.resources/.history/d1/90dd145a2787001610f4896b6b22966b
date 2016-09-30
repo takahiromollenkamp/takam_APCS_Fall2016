@@ -8,7 +8,7 @@ public class ProcessingNumbers {
 		Scanner userInput=new Scanner(System.in);
 		System.out.print("How many integers are you going to enter? ");
 		int numOfLoop=userInput.nextInt();
-		if(numOfLoop<1){throw new IllegalArgumentException("Start over. Positive integer only");}
+		if(x<1){throw new IllegalArgumentException("Start over. Positive integer only");}
 		System.out.print("Enter all of your integers: ");
 		int max=userInput.nextInt();
 		int min=max;
