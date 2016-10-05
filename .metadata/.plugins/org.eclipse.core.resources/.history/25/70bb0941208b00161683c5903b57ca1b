@@ -1,0 +1,16 @@
+
+public class DoMath {
+
+	public static void main(String[] args) {
+		
+		int x=1;
+		int diff=3;
+		for (int i=1;i<=7;i++){
+			System.out.print(x+" ");
+			x+=diff;
+			diff+=2;
+		}
+
+	}
+
+}

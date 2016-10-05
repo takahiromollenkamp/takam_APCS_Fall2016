@@ -1,0 +1,14 @@
+
+public class DoMath {
+
+	public static void main(String[] args) {
+		
+		int bill=100;
+		if(bill=100){
+			System.out.println("Ben");
+		}
+		
+
+	}
+
+}
