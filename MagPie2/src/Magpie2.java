@@ -77,18 +77,5 @@ public class Magpie2 {
 
 		return response;
 	}
-	private String noResponse(){
-		double x=3*Math.random();
-		String none="";
-		if (x<=1){
-			none="Say something please.";
-		}
-		else if(x<=2){
-			none="Tell me something";
-		}
-		else if(x<=3){
-			none="What are you thinking";
-		}
-		return none;
-	}
+	
 }

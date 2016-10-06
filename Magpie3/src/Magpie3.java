@@ -41,25 +41,25 @@ public class Magpie3 {
 			}
 			
 		}
-		else if (statement.indexOf("no") >= 0) {
+		else if (findKeyword(statement, "no", 0) >= 0) {
 			response = "Why so negative?";
-		} else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0) {
+		} else if (findKeyword(statement, "mother", 0) >= 0
+				|| findKeyword(statement,"father", 0) >= 0
+				|| findKeyword(statement,"sister", 0) >= 0
+				|| findKeyword(statement,"brother", 0) >= 0) {
 			response = "Tell me more about your family.";
-		} else if(statement.indexOf("Dreyer")>=0){
+		} else if(findKeyword(statement,"Dreyer", 0)>=0){
 			response="She sounds like a great teacher.";
-		} else if(statement.indexOf("DeHeer") >= 0
-				|| statement.indexOf("Lamont") >= 0){
+		} else if(findKeyword(statement,"DeHeer", 0) >= 0
+				|| findKeyword(statement,"Lamont", 0) >= 0){
 			response = "He sounds like a great teacher.";}
-		else if(statement.indexOf("hello")>=0){
+		else if(findKeyword(statement,"hello", 0)>=0){
 			response="Hi. What's up?";
 		}
-		else if(statement.indexOf("weather")>=0){
+		else if(findKeyword(statement,"weather", 0)>=0){
 			response="It's an exellent weather today.";
 		}
-		else if(statement.indexOf("hungry")>=0){
+		else if(findKeyword(statement,"hungry", 0)>=0){
 			response="What do you want to eat?";
 		}
 		else{
@@ -84,7 +84,7 @@ public class Magpie3 {
 	 * return the index of the first occurrence of goal in statement or -1 if
 	 *         it's not found
 	 */
-	private int findKeyword(String statement, String goal, int startPos) {
+	public int findKeyword(String statement, String goal, int startPos) {
 		String phrase = statement.trim();
 		// The only change to incorporate the startPos is in
 		// the line below
@@ -106,7 +106,7 @@ public class Magpie3 {
 
 			// If before and after aren't letters, we've
 			// found the word
-			if (before.equals(" ") && after.equals(" ")) {
+			if (before.equals(" ") && (after.equals(" ")||after.equals("?"))) {
 				return psn;
 			}
 
@@ -129,7 +129,7 @@ public class Magpie3 {
 	 * takes in the string to search for
 	 * returns the index of the first occurrence of goal in statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal) {
+	public int findKeyword(String statement, String goal) {
 		return findKeyword(statement, goal, 0);
 	}
 

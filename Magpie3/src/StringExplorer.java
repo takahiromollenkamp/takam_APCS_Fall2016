@@ -14,7 +14,7 @@ public class StringExplorer {
 		System.out.println("After toLowerCase(), sample = " + sample);
 
 		// Try other methods here:
-
+	
 	}
 
 }
