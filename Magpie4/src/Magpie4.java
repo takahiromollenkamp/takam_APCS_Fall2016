@@ -1,21 +1,14 @@
 public class Magpie4 {
 	
-	//Get a default greeting and return a greeting
+	/*Takahiro Mollenkamp 10/21/16
+	The final version of Magpie code
+	The magpie runner calls getresponse to talk with the user*/ 
 	public String getGreeting() {
 		return "Hello, let's talk.";
 	}
 
 
-	/*
-	 * 1) Copy and paste the code you wrote in Magpie 3 into the getResponse method. There is new code within the method 
-	 * but below where you will paste your code.  Figure out what it does.
-	 * 
-	 * 2) Copy and paste Part 3's getRandomResponse() code into the method below.
-	 * 
-	 * 3) Alter the class as described in the handout.
-	 * 
-	 */
-	
+
 	
 	/**
 	 * Gives a response to a user statement
@@ -27,7 +20,7 @@ public class Magpie4 {
 		// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
 		String response = "";
 		statement=statement.trim();
-		if (statement.length()==0){
+		if (statement.length()==0){//random response when there is no word inputed
 			double x=3*Math.random();
 			if (x<=1){
 				response="Say something please.";
@@ -46,19 +39,19 @@ public class Magpie4 {
 				|| findKeyword(statement,"father", 0) >= 0
 				|| findKeyword(statement,"sister", 0) >= 0
 				|| findKeyword(statement,"brother", 0) >= 0) {
-			response = "Tell me more about your family.";
-		} else if(findKeyword(statement,"Dreyer", 0)>=0){
+			response = "Tell me more about your family.";//response to family related input
+		} else if(findKeyword(statement,"Dreyer", 0)>=0){//teacher response
 			response="She sounds like a great teacher.";
 		} else if(findKeyword(statement,"DeHeer", 0) >= 0
-				|| findKeyword(statement,"Lamont", 0) >= 0){
+				|| findKeyword(statement,"Lamont", 0) >= 0){//teacher response
 			response = "He sounds like a great teacher.";}
 		else if(findKeyword(statement,"hello", 0)>=0){
 			response="Hi. What's up?";
 		}
-		else if(findKeyword(statement,"weather", 0)>=0){
+		else if(findKeyword(statement,"weather", 0)>=0){//additional keyword
 			response="It's an exellent weather today.";
 		}
-		else if(findKeyword(statement,"hungry", 0)>=0){
+		else if(findKeyword(statement,"hungry", 0)>=0){//additional keyword
 			response="What do you want to eat?";
 		}
 
@@ -81,14 +74,7 @@ public class Magpie4 {
 		return response;
 	}
 
-	/**
-	 * Take a statement with "I want to <something>." and transform it into
-	 * "What would it mean to <something>?"
-	 * 
-	 * @param statement
-	 *            the user statement, assumed to contain "I want to"
-	 * @return the transformed statement
-	 */
+
 	private String transformIWantToStatement(String statement) {
 		// Remove the final period, if there is one
 		statement = statement.trim();
@@ -101,13 +87,7 @@ public class Magpie4 {
 		return "Would you really be happy if you had " + restOfStatement + "?";
 	}
 
-	/**
-	 * Take a statement with "you <something> me" and transform it into
-	 * "What makes you think that I <something> you?"
-	 * 
-	 * @param statement
-	 *            the user statement, assumed to contain "you" followed by "me"
-	 * @return the transformed statement*/
+	
 	private String transformYouMeStatement(String statement) {
 		// Remove the final period, if there is one
 		statement = statement.trim();
@@ -124,20 +104,8 @@ public class Magpie4 {
 		return "Why do you " + restOfStatement + " me?";
 	}
 
-	/**
-	 * Search for one word in phrase. The search is not case sensitive. This
-	 * method will check that the given goal is not a substring of a longer
-	 * string (so, for example, "I know" does not contain "no").
-	 * 
-	 * parameter: statement
-	 *            the string to search
-	 * parameter: goal
-	 *            the string to search for
-	 * parameter: startPos
-	 *            the character of the string to begin the search at
-	 * return the index of the first occurrence of goal in statement or -1 if
-	 *         it's not found
-	 */
+
+	 
 	private int findKeyword(String statement, String goal, int startPos) {
 		String phrase = statement.trim();
 		// The only change to incorporate the startPos is in the line below
@@ -178,9 +146,7 @@ public class Magpie4 {
 	 * takes in the string to search for
 	 * returns the index of the first occurrence of goal in statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal) {
-		return findKeyword(statement, goal, 0);
-	}
+
 
 	/**
 	 * Pick a default response to use if nothing else fits.
