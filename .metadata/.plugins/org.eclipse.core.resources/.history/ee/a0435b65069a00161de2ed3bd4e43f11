@@ -28,17 +28,10 @@ public class Split
 		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
 		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 		*/
-		String a=breadSplit("breadlettustomatobaconmayohambreadcheese");
-		System.out.println(a);
-		}
-	public static String breadSplit(String original){
-		String[] array =original.split("bread");
-		String answer="";
-		for(int i=2; i<array.length;i++){//ignore the first and last array so two less
-			answer+=array[i-1];//skip first element
-		}
-		return answer;
+		String[] a="I really like really red apples!".split("really");
+		System.out.println(a[1]+a[2]+a[3]);
+		
+
 	}
 
 }
-
