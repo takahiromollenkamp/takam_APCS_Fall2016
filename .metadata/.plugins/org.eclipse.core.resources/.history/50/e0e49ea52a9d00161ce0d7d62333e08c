@@ -6,7 +6,7 @@ public class Split
 {
 
 	public static void main(String[] args) 
-	{   System.out.println("String split example code");
+	{   System.out.println("Example code");
 		exampleCode();
 		System.out.println("Part 1 tester code");
 		System.out.println(breadSplit("apple"));
@@ -21,9 +21,7 @@ public class Split
 		
 		System.out.println("Part 2 tester code");
 		System.out.println(breadSplit2("bread  apple  lettus bread"));
-	    System.out.println(breadSplit2("cheese bread pine      apple bread"));
-	    System.out.println(breadSplit2("bread   cheeese"));
-	    System.out.println(breadSplit2("gorilla bread beef chicken bread   turkey ham pork bread steak hamburger bread cheese tomato bread juice"));
+	
 		
 		
 	}

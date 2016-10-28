@@ -6,24 +6,18 @@ public class Split
 {
 
 	public static void main(String[] args) 
-	{   System.out.println("String split example code");
-		exampleCode();
-		System.out.println("Part 1 tester code");
+	{
 		System.out.println(breadSplit("apple"));
 		System.out.println(breadSplit("applebread"));
 		System.out.println(breadSplit("breadapplebread"));
 		System.out.println(breadSplit("breadbread"));
 		System.out.println(breadSplit("breadbreadbanana"));
 		System.out.println(breadSplit("breadbananabreadapple"));
-		System.out.println(breadSplit("beefbreadberriesbread"));
-		System.out.println(breadSplit("beefbreadliontigerbreadgiraffe"));
-		System.out.println(breadSplit("applebreadberriesplumbreadknifeorangecheesebreadlettusbread"));
-		
-		System.out.println("Part 2 tester code");
-		System.out.println(breadSplit2("bread  apple  lettus bread"));
-	    System.out.println(breadSplit2("cheese bread pine      apple bread"));
-	    System.out.println(breadSplit2("bread   cheeese"));
-	    System.out.println(breadSplit2("gorilla bread beef chicken bread   turkey ham pork bread steak hamburger bread cheese tomato bread juice"));
+		System.out.println(breadSplit("apple"));
+		System.out.println(breadSplit("apple"));
+		System.out.println(breadSplit("apple"));
+
+		//create all of the tests
 		
 		
 	}

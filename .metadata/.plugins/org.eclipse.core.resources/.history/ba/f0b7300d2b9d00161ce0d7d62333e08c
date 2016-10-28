@@ -23,7 +23,7 @@ public class Split
 		System.out.println(breadSplit2("bread  apple  lettus bread"));
 	    System.out.println(breadSplit2("cheese bread pine      apple bread"));
 	    System.out.println(breadSplit2("bread   cheeese"));
-	    System.out.println(breadSplit2("gorilla bread beef chicken bread   turkey ham pork bread steak hamburger bread cheese tomato bread juice"));
+	    System.out.println(breadSplit2("gorilla bread beef chicken bread   turkey ham pork bread steak hamburger bread cheese tomato bread juice");));
 		
 		
 	}
