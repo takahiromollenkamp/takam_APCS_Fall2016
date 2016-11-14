@@ -1,6 +1,6 @@
 package fracCalc;
 import java.util.*;
-//Takahiro Mollenakamp 11/9/16
+//Takahiro Mollenakamp 11/14/16
 
 public class FracCalc {
 
@@ -38,13 +38,13 @@ public class FracCalc {
 
     		if (splitted.indexOf("_")!=-1){
     			part[0]=splitted.substring(0, splitted.indexOf("_"));
-    			splitted=splitted.substring(splitted.indexOf("_"));
+    			splitted=splitted.substring(splitted.indexOf("_")+1);
     		} else {
     			part[0]="0";
     		}
 
     		if (splitted.indexOf("/")!=-1){
-    			part[1]=splitted.substring(1,splitted.indexOf("/"));
+    			part[1]=splitted.substring(0,splitted.indexOf("/"));
     			part[2]=splitted.substring(splitted.indexOf("/")+1);
     		} else{
     			part[1]="1";

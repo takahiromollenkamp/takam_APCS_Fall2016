@@ -1,0 +1,4 @@
+#Mon Nov 14 09:43:37 PST 2016
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=new class
