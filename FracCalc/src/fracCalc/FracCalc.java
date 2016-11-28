@@ -18,12 +18,24 @@ public class FracCalc {
     	System.out.println("THE END");
     }
     public static String produceAnswer(String input)
-    { 
+    {   String answer="";
         String[] split = input.split(" ");
         int[] op1=components(split[0]);
         int[] op2=components(split[2]);
-        String answer="whole:"+op2[0]+" numerator:"+op2[1]+" denominator:"+op2[2];
+        if (split[1].equals("+")){
+        	answer =add(op1, op2);
+        }
         return answer;
+    }
+    public static String add(int[] first, int[] second){
+    	int whole = first[0]+second[0];
+    	int denominator = first[2]*second[2];
+    	first[1]=first[1]*second[2];
+    	second[1]=second[1]*first[2];
+    	int numerator=first[1]+second[1];
+    	String solution=whole+"_"+numerator+"/"+denominator;
+    	return solution;
+    	//figure negative numbers
     }
     
     public static int[] components(String splitted){
