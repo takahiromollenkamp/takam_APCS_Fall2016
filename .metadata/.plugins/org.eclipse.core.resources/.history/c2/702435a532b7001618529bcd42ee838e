@@ -25,7 +25,7 @@ public class FracCalc {
         convertToImproper(secondOp);
         int[] finalArray=compute(firstOp,secondOp,split[1]);
         
-        for (int i=3; i<split.length; i+=2){
+        for (int i=3; i<(split.length+1); i+=2){
         	firstOp[0]=0;
         	firstOp[1]=finalArray[0];
             firstOp[2]=finalArray[1];

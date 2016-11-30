@@ -3,7 +3,8 @@ import java.util.*;
 //Takahiro Mollenakamp 11/30/16
 
 public class FracCalc {
-	public static void main(String[] args) 
+
+    public static void main(String[] args) 
     {	
     	System.out.println("enter your operation");
     	Scanner input=new Scanner(System.in);//scanner
@@ -24,14 +25,6 @@ public class FracCalc {
         convertToImproper(firstOp);
         convertToImproper(secondOp);
         int[] finalArray=compute(firstOp,secondOp,split[1]);
-        
-        for (int i=3; i<split.length; i+=2){
-        	firstOp[0]=0;
-        	firstOp[1]=finalArray[0];
-            firstOp[2]=finalArray[1];
-        	secondOp=components(split[i+1]);
-        	finalArray=compute(firstOp,secondOp,split[i]);
-        }
         answer=finalAnswer(finalArray);
         return answer;
     }
