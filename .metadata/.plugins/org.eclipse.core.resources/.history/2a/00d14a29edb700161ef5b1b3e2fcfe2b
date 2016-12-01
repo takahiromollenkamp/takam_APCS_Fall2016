@@ -81,6 +81,9 @@ public class FracCalc {
     	int remainder = numerator%denominator;
     	freshArray[0]=whole;
     	freshArray[1]=remainder;
+    	if (freshArray[1]<0){
+    		freshArray[1]*=-1;
+    	}
     	freshArray[2]=denominator;
     	
     	if(remainder<0){ 

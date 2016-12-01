@@ -33,6 +33,7 @@ public class FracCalc {
              convertToImproper(gArray);
              finalArray=compute(firstOp,gArray,split[i]);
              answer=finalAnswer(finalArray,firstOp);
+             System.out.println(Arrays.toString(finalArray));
              System.out.println(answer);
         }
         

@@ -33,6 +33,7 @@ public class FracCalc {
              convertToImproper(gArray);
              finalArray=compute(firstOp,gArray,split[i]);
              answer=finalAnswer(finalArray,firstOp);
+             System.out.println(Arrays.toString(finalArray));
              System.out.println(answer);
         }
         
@@ -79,13 +80,14 @@ public class FracCalc {
     	int denominator=almostDone[1]/common;
     	int whole = numerator/denominator;
     	int remainder = numerator%denominator;
+    	if(whole>0&&remainder<0){ 
+    		remainder*=-1;
+    	}
     	freshArray[0]=whole;
     	freshArray[1]=remainder;
     	freshArray[2]=denominator;
     	
-    	if(remainder<0){ 
-    		remainder*=-1;
-    	}
+    	
     	if (denominator<0){
     		denominator*=-1;
     	}
@@ -93,7 +95,7 @@ public class FracCalc {
     			answer+=whole;
     	}
     	else if(whole==0){
-    		answer=numerator+"/"+denominator;
+    		answer=remainder+"/"+denominator;
     	} else{
     		answer=whole+"_"+remainder+"/"+denominator;
     	}
