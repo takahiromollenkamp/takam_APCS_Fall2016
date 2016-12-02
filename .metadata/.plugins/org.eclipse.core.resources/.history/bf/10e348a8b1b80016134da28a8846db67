@@ -1,9 +1,6 @@
-
-//Takahiro Mollenakamp 11/30/16
-//FracCalc program 
 package fracCalc;
 import java.util.*;
-
+//Takahiro Mollenakamp 11/30/16
 
 public class FracCalc {
 	public static void main(String[] args) 
@@ -26,31 +23,17 @@ public class FracCalc {
         int[] secondOp=components(split[2]);
         convertToImproper(firstOp);
         convertToImproper(secondOp);
-        
         int[] finalArray=compute(firstOp,secondOp,split[1]);
-        
         answer=finalAnswer(finalArray,firstOp);
-        
+    
         
         for(int i=3; i<split.length; i+=2){
-        	
         	int[] gArray=components(split[i+1]);
-        	if(i==7) System.out.println(Arrays.toString(firstOp));
         	 convertToImproper(firstOp);
-        	 if(i==7){
-        		 System.out.println(Arrays.toString(firstOp));
-        	 }
              convertToImproper(gArray);
              finalArray=compute(firstOp,gArray,split[i]);
              answer=finalAnswer(finalArray,firstOp);
-             if(i==7){
-            	 System.out.println(Arrays.toString(firstOp));
-            	 System.out.println(Arrays.toString(gArray));
-            	 System.out.println(Arrays.toString(finalArray));
-            	 System.out.println(answer); 
-            	 
-             }
-             
+             System.out.println(answer);
         }
         
         return answer;
@@ -91,21 +74,16 @@ public class FracCalc {
     
     public static String finalAnswer(int[] almostDone, int[] freshArray){
     	String answer="";
-    	int common=Math.abs(gcf(almostDone[0],almostDone[1]));
+    	int common=gcf(almostDone[0],almostDone[1]);
     	int numerator=almostDone[0]/common;
-    	
     	int denominator=almostDone[1]/common;
     	int whole = numerator/denominator;
     	int remainder = numerator%denominator;
     	freshArray[0]=whole;
-    	if(whole==0){
-    		freshArray[1]=numerator;
-    	} else{
-    		freshArray[1]=Math.abs(remainder);
-    	}
+    	freshArray[1]=remainder;
     	freshArray[2]=denominator;
     	
-    	if(whole!=0&&remainder<0){ 
+    	if(remainder<0){ 
     		remainder*=-1;
     	}
     	if (denominator<0){

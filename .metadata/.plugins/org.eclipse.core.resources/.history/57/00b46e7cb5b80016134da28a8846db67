@@ -1,9 +1,6 @@
-
-//Takahiro Mollenakamp 11/30/16
-//FracCalc program 
 package fracCalc;
 import java.util.*;
-
+//Takahiro Mollenakamp 11/30/16
 
 public class FracCalc {
 	public static void main(String[] args) 
@@ -35,18 +32,14 @@ public class FracCalc {
         for(int i=3; i<split.length; i+=2){
         	
         	int[] gArray=components(split[i+1]);
-        	if(i==7) System.out.println(Arrays.toString(firstOp));
         	 convertToImproper(firstOp);
-        	 if(i==7){
-        		 System.out.println(Arrays.toString(firstOp));
-        	 }
              convertToImproper(gArray);
              finalArray=compute(firstOp,gArray,split[i]);
              answer=finalAnswer(finalArray,firstOp);
              if(i==7){
             	 System.out.println(Arrays.toString(firstOp));
             	 System.out.println(Arrays.toString(gArray));
-            	 System.out.println(Arrays.toString(finalArray));
+            	 System.out.println(Arrays.toString(finalAnswer));
             	 System.out.println(answer); 
             	 
              }
@@ -101,7 +94,7 @@ public class FracCalc {
     	if(whole==0){
     		freshArray[1]=numerator;
     	} else{
-    		freshArray[1]=Math.abs(remainder);
+    		freshArray[1]=remainder;
     	}
     	freshArray[2]=denominator;
     	

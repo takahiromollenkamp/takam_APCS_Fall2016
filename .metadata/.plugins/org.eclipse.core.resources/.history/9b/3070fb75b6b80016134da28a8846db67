@@ -1,9 +1,6 @@
-
-//Takahiro Mollenakamp 11/30/16
-//FracCalc program 
 package fracCalc;
 import java.util.*;
-
+//Takahiro Mollenakamp 11/30/16
 
 public class FracCalc {
 	public static void main(String[] args) 
