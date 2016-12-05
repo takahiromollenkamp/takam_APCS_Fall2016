@@ -1,10 +1,12 @@
+
+//Takahiro Mollenakamp 11/30/16
+//FracCalc program 
 package fracCalc;
 import java.util.*;
-//Takahiro Mollenakamp 11/30/16
+
 
 public class FracCalc {
-
-    public static void main(String[] args) 
+	public static void main(String[] args) 
     {	
     	System.out.println("enter your operation");
     	Scanner input=new Scanner(System.in);//scanner
@@ -24,66 +26,86 @@ public class FracCalc {
         int[] secondOp=components(split[2]);
         convertToImproper(firstOp);
         convertToImproper(secondOp);
-        int[] finalArray=new int[2];
-        if (split[1].equals("+")){
-        	finalArray =add(firstOp, secondOp);
+        
+        int[] finalArray=compute(firstOp,secondOp,split[1]);
+        
+        answer=finalAnswer(finalArray,firstOp);
+        
+        
+        for(int i=3; i<split.length; i+=2){
+        	
+        	int[] gArray=components(split[i+1]);
+        	if(i==7) System.out.println(Arrays.toString(firstOp));
+        	 convertToImproper(firstOp);
+        	 if(i==7){
+        		 System.out.println(Arrays.toString(firstOp));
+        	 }
+             convertToImproper(gArray);
+             finalArray=compute(firstOp,gArray,split[i]);
+             answer=finalAnswer(finalArray,firstOp);
+             if(i==7){
+            	 System.out.println(Arrays.toString(firstOp));
+            	 System.out.println(Arrays.toString(gArray));
+            	 System.out.println(Arrays.toString(finalArray));
+            	 System.out.println(answer); 
+            	 
+             }
+             
         }
-        if (split[1].equals("-")){
-        	finalArray =subtract(firstOp, secondOp);
-        }
-        if (split[1].equals("*")){
-        	finalArray =multiply(firstOp, secondOp);
-        }
-        if (split[1].equals("/")){
-        	finalArray=divide(firstOp, secondOp);
-        }
-        answer=finalAnswer(finalArray);
+        
         return answer;
     }
-    public static int[] add(int[] first, int[] second){
-    	int denominator = first[2]*second[2];
-    	first[1]*=second[2];
-    	second[1]*=first[2];
-    	int numerator=first[1]+second[1];
-    	int[] solution={numerator,denominator};
-    	return solution;
-    	//figure negative numbers
-    }
-    public static int[] subtract(int[] first, int[] second){
-    	int denominator = first[2]*second[2];
-    	first[1]*=second[2];
-    	second[1]*=first[2];
-    	int numerator=first[1]-second[1];
-    	int[] solution={numerator,denominator};
-    	return solution;
-    }
-    public static int[] multiply(int[] first, int[] second){
-    	int numerator=first[1]*second[1];
-    	int denominator=first[2]*second[2];
-    	int[] solution={numerator,denominator};
-    	return solution;
-    }
-    public static int[] divide(int[] first, int[] second){
-    	int a=second[1];
-    	int b=second[2];
-    	if(a<0){
-    		a=-a;
-    		b=-b;
+    public static int[] compute(int[] first, int[] second, String operator){
+    	boolean add=operator.equals("+");
+    	boolean subtract=operator.equals("-");
+    	boolean multiply=operator.equals("*");
+    	boolean divide=operator.equals("/");
+    	int numerator=0;
+    	int denominator=1;
+    	if(add||subtract){
+    		denominator = first[2]*second[2];
+        	first[1]*=second[2];
+        	second[1]*=first[2];
+        	if(subtract){
+        		second[1]*=-1;
+        	}
+        	numerator=first[1]+second[1];
     	}
-    	int numerator=first[1]*b;
-    	int denominator=first[2]*a;
+    	if(multiply||divide){
+    		if(divide){
+    			int a=second[1];
+    			int b=second[2];
+    			second[2]=a;
+    			second[1]=b;
+    			if(a<0){
+    				second[2]*=-1;
+    				second[1]*=-1;
+    			}
+    		}
+    		 numerator=first[1]*second[1];
+        	 denominator=first[2]*second[2];	
+    	}
     	int[] solution={numerator,denominator};
     	return solution;
     }
     
-    public static String finalAnswer(int[] almostDone){
+    public static String finalAnswer(int[] almostDone, int[] freshArray){
     	String answer="";
-    	int common=gcf(almostDone[0],almostDone[1]);
+    	int common=Math.abs(gcf(almostDone[0],almostDone[1]));
     	int numerator=almostDone[0]/common;
+    	
     	int denominator=almostDone[1]/common;
     	int whole = numerator/denominator;
     	int remainder = numerator%denominator;
-    	if(remainder<0){ 
+    	freshArray[0]=whole;
+    	if(whole==0){
+    		freshArray[1]=remainder;
+    	} else{
+    		freshArray[1]=Math.abs(remainder);
+    	}
+    	freshArray[2]=denominator;
+    	
+    	if(whole!=0&&remainder<0){ 
     		remainder*=-1;
     	}
     	if (denominator<0){
@@ -97,7 +119,6 @@ public class FracCalc {
     	} else{
     		answer=whole+"_"+remainder+"/"+denominator;
     	}
-    	
     	return answer;
     }
     
@@ -105,24 +126,17 @@ public class FracCalc {
     	String[] part= {"0","0","1"};
     	if(splitted.indexOf("_")==-1&&splitted.indexOf("/")==-1){
     		part[0]=splitted;
-    		
-
     	} else{
-
     		if (splitted.indexOf("_")!=-1){
     			part[0]=splitted.substring(0, splitted.indexOf("_"));
     			splitted=splitted.substring(splitted.indexOf("_")+1);
     		} 
-
     		if (splitted.indexOf("/")!=-1){
     			part[1]=splitted.substring(0,splitted.indexOf("/"));
     			part[2]=splitted.substring(splitted.indexOf("/")+1);
     		} 
     	}
-    	int[] comp=new int [3];
-    	for(int i=0; i<3; i++){
-    		comp [i]= Integer.parseInt(part[i]);
-    	}
+    	int[] comp={Integer.parseInt(part[0]),Integer.parseInt(part[1]),Integer.parseInt(part[2])};
     	return comp;	
     }
     public static void convertToImproper(int array[]){//change to improper fraction

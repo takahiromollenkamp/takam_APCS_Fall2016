@@ -1,8 +1,6 @@
 
-//Takahiro Mollenakamp 12/5/16
-//FracCalc program
-//This program performs fraction calculations
-
+//Takahiro Mollenakamp 11/30/16
+//FracCalc program 
 package fracCalc;
 import java.util.*;
 
@@ -13,7 +11,7 @@ public class FracCalc {
     	System.out.println("enter your operation");
     	Scanner input=new Scanner(System.in);//scanner
     	String userInput=input.nextLine();
-    	while(userInput.equals("quit")==false){//loopty loop til quit
+    	while(userInput.equals("quit")==false){
     		String answer=produceAnswer(userInput);
     		System.out.println(answer);
     		System.out.println("hit me again");
@@ -21,15 +19,14 @@ public class FracCalc {
     	}
     	System.out.println("THE END");
     }
-    public static String produceAnswer(String input){
-        String answer="";
+    public static String produceAnswer(String input)
+    {   String answer="";
     	String[] split = input.split(" ");//split to first operand, operator, and second operand
         int[] firstOp=components(split[0]);//split to whole, numerator, denominator
         int[] secondOp=components(split[2]);
+        String errorMessage=errorCheck(split[1], firstOp[2], secondOp[2]);//error handling
         convertToImproper(firstOp);
         convertToImproper(secondOp);
-        String errorMessage=errorCheck(split[1], firstOp, secondOp);//error handling
-        
         if(errorMessage.equals("pass")){
         
         
@@ -153,18 +150,15 @@ public class FracCalc {
 	  }
 	  return a+b;
    }
-    public static String errorCheck(String operand, int[] first, int[] second){//error checking program
+    public static String errorCheck(String operand, int denom1, int denom2){//error checking program
     	String errorOutput="";
     	if (operand.equals("+")||operand.equals("-")||operand.equals("/")||operand.equals("*")){
     		errorOutput="pass";	//operand check
     	} else{
     		errorOutput="Input is in an invalid format. ";
     	}
-    	if(first[2]==0||second[2]==0){
+    	if(denom1==0||denom2==0){
     		errorOutput="Cannot divide by zero";//is the denominator zero?
-    	}
-    	if(operand.equals("/")&&second[1]==0){
-    		errorOutput="Cannot divide by zero";//as an operation
     	}
     	return errorOutput;
     
