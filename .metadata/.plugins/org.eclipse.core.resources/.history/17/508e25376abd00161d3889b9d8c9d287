@@ -10,13 +10,13 @@ public class FracCalc {
 	private static Scanner input;
 	public static void main(String[] args) 
 	{	
-		System.out.println("enter an operation");
+		System.out.println("enter your operation");
 		input = new Scanner(System.in);
 		String userInput=input.nextLine();
 		while(userInput.equals("quit")==false){//loopty loop til "quit"
 			String answer=produceAnswer(userInput);
 			System.out.println(answer);
-			System.out.println("enter another one, or type quit");
+			System.out.println("hit me again");
 			userInput=input.nextLine();
 		}
 		System.out.println("THE END");
@@ -24,28 +24,23 @@ public class FracCalc {
 	public static String produceAnswer(String input){
 		String answer="";
 		String[] split = input.split(" ");//split to first operand, operator, and second operand
-		if(split.length<3){
-			answer="ERROR: enter in order of first operand, space, operator, space, second operator.";
-		} else{
+		int[] firstOp=components(split[0]);//split to whole, numerator, denominator
+		int[] secondOp=components(split[2]);
+		convertToImproper(firstOp);
+		convertToImproper(secondOp);
+		String errorMessage=errorCheck(split[1], firstOp, secondOp);//error handling
+		if(errorMessage.equals("pass")){
+			int[] finalArray=compute(firstOp,secondOp,split[1]);
+			answer=finalAnswer(finalArray,firstOp);
 
-			int[] firstOp=components(split[0]);//split to whole, numerator, denominator
-			int[] secondOp=components(split[2]);
-			convertToImproper(firstOp);
-			convertToImproper(secondOp);
-			String errorMessage=errorCheck(split[1], firstOp, secondOp);//error handling
-			if(errorMessage.equals("pass")){
-				int[] finalArray=compute(firstOp,secondOp,split[1]);
+			for(int i=3; i<split.length; i+=2){//multiple operations
+				int[] newArray=components(split[i+1]);//get next operand
+				convertToImproper(firstOp);
+				convertToImproper(newArray);
+				finalArray=compute(firstOp,newArray,split[i]);
 				answer=finalAnswer(finalArray,firstOp);
-
-				for(int i=3; i<split.length; i+=2){//multiple operations
-					int[] newArray=components(split[i+1]);//get next operand
-					convertToImproper(firstOp);
-					convertToImproper(newArray);
-					finalArray=compute(firstOp,newArray,split[i]);
-					answer=finalAnswer(finalArray,firstOp);
-				}
-			} else answer=errorMessage;
-		}
+			}
+		} else answer=errorMessage;
 		return answer;
 	}
 	public static int[] compute(int[] first, int[] second, String operator){
@@ -152,13 +147,13 @@ public class FracCalc {
 		if (operand.equals("+")||operand.equals("-")||operand.equals("/")||operand.equals("*")){
 			errorOutput="pass";	//operand check
 		} else{
-			errorOutput="Error: Input is in an invalid format. ";
+			errorOutput="Input is in an invalid format. ";
 		}
 		if(first[2]==0||second[2]==0){
-			errorOutput="Error: Cannot divide by zero";//is the denominator zero?
+			errorOutput="Cannot divide by zero";//is the denominator zero?
 		}
 		if(operand.equals("/")&&second[1]==0){
-			errorOutput="ERROR: Cannot divide by zero";//in an operation
+			errorOutput="Cannot divide by zero";//in an operation
 		}
 		return errorOutput;
 	}

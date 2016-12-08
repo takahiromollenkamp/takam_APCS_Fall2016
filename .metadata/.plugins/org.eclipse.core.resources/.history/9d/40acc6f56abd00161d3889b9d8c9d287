@@ -10,7 +10,7 @@ public class FracCalc {
 	private static Scanner input;
 	public static void main(String[] args) 
 	{	
-		System.out.println("enter an operation");
+		System.out.println("enter your operation");
 		input = new Scanner(System.in);
 		String userInput=input.nextLine();
 		while(userInput.equals("quit")==false){//loopty loop til "quit"
@@ -27,24 +27,24 @@ public class FracCalc {
 		if(split.length<3){
 			answer="ERROR: enter in order of first operand, space, operator, space, second operator.";
 		} else{
+		
+		int[] firstOp=components(split[0]);//split to whole, numerator, denominator
+		int[] secondOp=components(split[2]);
+		convertToImproper(firstOp);
+		convertToImproper(secondOp);
+		String errorMessage=errorCheck(split[1], firstOp, secondOp);//error handling
+		if(errorMessage.equals("pass")){
+			int[] finalArray=compute(firstOp,secondOp,split[1]);
+			answer=finalAnswer(finalArray,firstOp);
 
-			int[] firstOp=components(split[0]);//split to whole, numerator, denominator
-			int[] secondOp=components(split[2]);
-			convertToImproper(firstOp);
-			convertToImproper(secondOp);
-			String errorMessage=errorCheck(split[1], firstOp, secondOp);//error handling
-			if(errorMessage.equals("pass")){
-				int[] finalArray=compute(firstOp,secondOp,split[1]);
+			for(int i=3; i<split.length; i+=2){//multiple operations
+				int[] newArray=components(split[i+1]);//get next operand
+				convertToImproper(firstOp);
+				convertToImproper(newArray);
+				finalArray=compute(firstOp,newArray,split[i]);
 				answer=finalAnswer(finalArray,firstOp);
-
-				for(int i=3; i<split.length; i+=2){//multiple operations
-					int[] newArray=components(split[i+1]);//get next operand
-					convertToImproper(firstOp);
-					convertToImproper(newArray);
-					finalArray=compute(firstOp,newArray,split[i]);
-					answer=finalAnswer(finalArray,firstOp);
-				}
-			} else answer=errorMessage;
+			}
+		} else answer=errorMessage;
 		}
 		return answer;
 	}
