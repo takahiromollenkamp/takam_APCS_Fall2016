@@ -4,9 +4,6 @@ public class AdvanceTicket extends Ticket{
 		super(x);
 		day=y;
 	}
-	public int getDay(){
-		return day;
-	}
 	
 	public double getPrice(){
 		if(day<10){

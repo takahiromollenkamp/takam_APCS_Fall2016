@@ -4,6 +4,9 @@ public abstract class Ticket {
 	public double getPrice(){
 		return 0.0;
 	}
+	public int getNumber(){
+		return number;
+	}
 	public Ticket(int x){
 		number = x;
 	}

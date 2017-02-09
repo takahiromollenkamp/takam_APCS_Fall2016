@@ -1,10 +1,14 @@
 
 public class WalkupTicket extends Ticket{
 
-	@Override
-	public int getPrice() {
-		// TODO Auto-generated method stub
-		return 50;
+	
+	public WalkupTicket(int x) {
+		super(x);
+		// TODO Auto-generated constructor stub
+	}
+
+	public double getPrice() {
+		return 50.0;
 	}
 	
 } 

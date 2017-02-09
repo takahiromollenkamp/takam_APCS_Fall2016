@@ -1,0 +1,17 @@
+
+public abstract Ticket {
+	public Ticket(){
+		
+	}
+	private int number=0;
+	public int getDays(){
+	
+	}
+	public abstract int getPrice();
+	public Strin toString(){
+		String s="Number: "+number+" Price: "+ getPrice();
+		return s;
+	}
+}
+
+
