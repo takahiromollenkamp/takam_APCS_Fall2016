@@ -1,9 +1,0 @@
-
-public class TicketTester {
-
-	public static void main(String[] args) {
-		WalkupTicket f=new WalkupTicket(5);
-
-	}
-
-}
