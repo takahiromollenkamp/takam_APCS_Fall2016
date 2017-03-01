@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\APCS2\Desktop\TextExcelStarterProject.zip"/>
 		<item value="C:\Users\APCS2\Desktop\takam_APCS_Fall2016\FracCalc"/>
 		<item value="C:\Users\APCS2\Desktop\takam_APCS_Fall2016\arrays_lab_3_basic_skills_1dim"/>
 		<item value="C:\Users\APCS2\Desktop\takam_APCS_Fall2016\Srting Split"/>
@@ -8,6 +9,17 @@
 		<item value="C:\Users\APCS2\Desktop\takam_APCS_Fall2016\Magpie3"/>
 		<item value="C:\Users\APCS2\Desktop\takam_APCS_Fall2016\MagPie2"/>
 	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\APCS2\Desktop\TextExcelStarterProject.zip"/>
+		</list>
+	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">

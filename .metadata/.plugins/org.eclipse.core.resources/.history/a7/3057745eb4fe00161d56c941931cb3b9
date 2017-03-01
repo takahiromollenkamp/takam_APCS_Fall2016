@@ -18,8 +18,7 @@ public class TextExcel
 		String input=userInput.nextLine();
 		while(input.equals("quit")==false){
 			//do stuff
-			String haha=go.processCommand(input);
-			System.out.println(haha);
+			go.processCommand(input);
 			input=userInput.nextLine();
 		}
 		

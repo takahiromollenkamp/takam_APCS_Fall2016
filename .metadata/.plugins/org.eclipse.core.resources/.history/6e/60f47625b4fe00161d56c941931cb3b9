@@ -13,16 +13,15 @@ public class TextExcel
 	public static void main(String[] args)
 	{
 		// Add your command loop here
-		Spreadsheet go=new Spreadsheet();
-		Scanner userInput=new Scanner(System.in);
+		/*Scanner userInput=new Scanner(System.in);
 		String input=userInput.nextLine();
 		while(input.equals("quit")==false){
 			//do stuff
-			String haha=go.processCommand(input);
-			System.out.println(haha);
 			input=userInput.nextLine();
-		}
-		
+		}*/
+		SpreadsheetLocation a=new SpreadsheetLocation("C15");
+		System.out.println(a.getRow());
+		System.out.println(a.getCol());
 		
 	}
 }
