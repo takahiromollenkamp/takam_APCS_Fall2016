@@ -24,7 +24,7 @@ public class SpreadsheetLocation implements Location
     {
         // TODO: Fill this out with your own code
     	char temp=cellName.charAt(0);
-    	column=temp-64;
+    	column=temp-'A';
     	row=Integer.parseInt(cellName.substring(1))-1;
     }
 

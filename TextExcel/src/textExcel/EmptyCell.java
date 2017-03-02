@@ -2,10 +2,11 @@ package textExcel;
 
 public class EmptyCell implements Cell {
 
-	@Override
+	
+	private String inside;
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return "";
+		return inside;
 	}
 
 	@Override
@@ -14,6 +15,6 @@ public class EmptyCell implements Cell {
 		return "";
 	}
     public EmptyCell(){
-    	
+    	inside="          ";
     }
 }

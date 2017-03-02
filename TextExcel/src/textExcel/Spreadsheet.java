@@ -4,8 +4,11 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-
-	@Override
+	public Cell[][] sheet;
+	
+	public Spreadsheet(){
+		Cell[][] sheet=new EmptyCell [20][12];
+	}
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
@@ -36,8 +39,21 @@ public class Spreadsheet implements Grid
 	@Override
 	public String getGridText()
 	{
+		String griddy="   ";
+		for(char kkk='A'; kkk<='L'; kkk++){
+			griddy+="|"+kkk+"         ";
+		}
+		griddy+="|\n";
+		for(int i=0;i<20;i++){
+			griddy+=(i+1)+"  ";
+			for(int j=0;j<12;j++){
+				griddy+="|";
+				griddy+=sheet[i][j].abbreviatedCellText();
+			}
+			griddy+="|\n";	
+		}
 		// TODO Auto-generated method stub
-		return null;
+		return griddy;
 	}
 
 }

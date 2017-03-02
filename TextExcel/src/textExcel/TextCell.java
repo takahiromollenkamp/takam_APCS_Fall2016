@@ -2,7 +2,10 @@ package textExcel;
 
 public class TextCell implements Cell {
 
-	@Override
+	private String content;
+	public TextCell(){
+		
+	}
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
 		return null;
