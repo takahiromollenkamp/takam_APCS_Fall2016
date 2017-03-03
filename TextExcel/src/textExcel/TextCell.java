@@ -8,7 +8,7 @@ public class TextCell implements Cell {
 	}
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return null;
+		return"";
 	}
 
 	@Override

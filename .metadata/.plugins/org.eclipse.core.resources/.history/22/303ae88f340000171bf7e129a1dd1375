@@ -1,5 +1,4 @@
 package textExcel;
-//Takahiro Mollenkamp 3/3/17
 
 // Update this file with your own code.
 
@@ -8,7 +7,7 @@ public class Spreadsheet implements Grid
 	private Cell[][] sheet;
 	
 	public Spreadsheet(){
-		sheet=new Cell [20][12];
+		sheet=new EmptyCell [20][12];
 		for(int i=0; i<20; i++){
 			for(int j=0; j<12;j++){
 				sheet[i][j]=new EmptyCell();
@@ -51,8 +50,7 @@ public class Spreadsheet implements Grid
 		}
 		griddy+="|\n";
 		for(int i=0;i<20;i++){
-			String n=(i+1)+"   ";
-			griddy+=n.substring(0, 3);
+			griddy+=(i+1)+"  ";
 			for(int j=0;j<12;j++){
 				griddy+="|";
 				String s =sheet[i][j].abbreviatedCellText();
