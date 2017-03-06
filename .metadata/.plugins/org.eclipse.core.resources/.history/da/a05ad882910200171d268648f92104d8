@@ -17,35 +17,7 @@ public class Spreadsheet implements Grid
 	}
 	public String processCommand(String command)
 	{
-		String[] spliff=command.split(" ");
-		if(spliff[0].equals("clear")){
-			if(spliff.length>1){
-				SpreadsheetLocation low= new SpreadsheetLocation(spliff[1]);
-				Cell change=getCell(low);
-				change=new EmptyCell();
-			}
-			else{
-				sheet=new Cell [20][12];
-				for(int i=0; i<20; i++){
-					for(int j=0; j<12;j++){
-						sheet[i][j]=new EmptyCell();
-					}
-				}
-			}
-			return getGridText();
-		}
-		else if(spliff.length==1){
-			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
-			Cell aboutToInspect=getCell(low);
-			return aboutToInspect.fullCellText();
-		} else if(spliff[1].equals("=")){
-			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
-			
-			Cell change=getCell(low);
-			change=new TextCell(spliff[2]);
-			return getGridText();
-		}
-		
+		// TODO Auto-generated method stub
 		return "";
 	}
 
@@ -67,11 +39,7 @@ public class Spreadsheet implements Grid
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
-		int a=loc.getRow();
-		int b=loc.getCol();
-		
-		
-		return sheet[a][b];
+		return null;
 	}
 
 	@Override

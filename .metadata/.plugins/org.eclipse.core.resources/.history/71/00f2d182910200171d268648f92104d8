@@ -4,7 +4,9 @@ public class Practice {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		TestsALL.Helper th = new TestsALL.Helper();
+
+		System.out.println(th.getText());
 		Spreadsheet go=new Spreadsheet();
 		System.out.println(go.getGridText());
 	}

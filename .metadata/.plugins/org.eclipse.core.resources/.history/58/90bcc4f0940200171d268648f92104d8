@@ -40,7 +40,6 @@ public class Spreadsheet implements Grid
 			return aboutToInspect.fullCellText();
 		} else if(spliff[1].equals("=")){
 			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
-			
 			Cell change=getCell(low);
 			change=new TextCell(spliff[2]);
 			return getGridText();

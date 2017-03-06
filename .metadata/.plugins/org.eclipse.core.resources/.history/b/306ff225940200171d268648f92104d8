@@ -3,18 +3,18 @@ package textExcel;
 public class TextCell implements Cell {
 
 	private String content;
-	public TextCell(String initial){
-		content=initial;
+	public TextCell(){
+		
 	}
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return content;
+		return"";
 	}
 
 	@Override
 	public String fullCellText() {
 		// TODO Auto-generated method stub
-		return content;
+		return null;
 	}
 
 }
