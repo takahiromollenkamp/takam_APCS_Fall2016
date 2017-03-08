@@ -1,5 +1,5 @@
 package textExcel;
-//Takahiro Mollenkamp 3/3/17
+//Takahiro Mollenkamp 3/8/17
 
 // Update this file with your own code.
 
@@ -17,12 +17,49 @@ public class Spreadsheet implements Grid
 	}
 	public String processCommand(String command)
 	{
+		if(command.equals("")){
+			return "";
+		}
+		
 		String[] spliff=command.split(" ");
-		if(spliff[0].equals("clear")){
+		spliff[0]=spliff[0].toUpperCase();
+		if(command.charAt(command.length()-1)=='%'){
+			spliff[1]=spliff[1].toUpperCase();
+			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+			sheet[low.getRow()][low.getCol()]=new PercentCell(spliff[2]);
+			return getGridText();
+		}
+		if(spliff.length>1){
+		if(spliff[1].equals("=")){
+			if(spliff[2].substring(0,1).equals("\"")==false){
+				
+				SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+				if (spliff.length==3){
+					sheet[low.getRow()][low.getCol()]=new ValueCell(spliff[2]);
+					
+				}
+				else{
+					String putin="";
+					for(int i=2;i<spliff.length;i++){
+						if(i>=3){
+							putin+=" ";
+						}
+						putin+=spliff[i];
+						
+					}
+					sheet[low.getRow()][low.getCol()]=new FormulaCell(spliff[2]);
+					
+				}
+				return getGridText();
+			}
+		}
+		}
+		
+		if(spliff[0].equals("CLEAR")){
 			if(spliff.length>1){
+				spliff[1]=spliff[1].toUpperCase();
 				SpreadsheetLocation low= new SpreadsheetLocation(spliff[1]);
-				Cell change=getCell(low);
-				change=new EmptyCell();
+				sheet[low.getRow()][low.getCol()]=new EmptyCell();
 			}
 			else{
 				sheet=new Cell [20][12];
@@ -40,9 +77,17 @@ public class Spreadsheet implements Grid
 			return aboutToInspect.fullCellText();
 		} else if(spliff[1].equals("=")){
 			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+			String putin="";
+			for(int i=2;i<spliff.length;i++){
+				if(i>=3){
+					putin+=" ";
+				}
+				putin+=spliff[i];
+				
+			}
 			
-			Cell change=getCell(low);
-			change=new TextCell(spliff[2]);
+			sheet[low.getRow()][low.getCol()]=new TextCell(putin);
+			
 			return getGridText();
 		}
 		

@@ -1,0 +1,129 @@
+package textExcel;
+//Takahiro Mollenkamp 3/3/17
+
+// Update this file with your own code.
+
+public class Spreadsheet implements Grid
+{
+	private Cell[][] sheet;
+	
+	public Spreadsheet(){
+		sheet=new Cell [20][12];
+		for(int i=0; i<20; i++){
+			for(int j=0; j<12;j++){
+				sheet[i][j]=new EmptyCell();
+			}
+		}
+	}
+	public String processCommand(String command)
+	{
+		
+		String[] spliff=command.split(" ");
+		spliff[0]=spliff[0].toUpperCase();
+		/*if(spliff.length>3){
+			if(spliff[3].toUpperCase().equals("AVG")){
+				String[] whichCell=spliff[4].split("-");
+				SpreadsheetLocation start=new SpreadsheetLocation(whichCell[0]);
+				SpreadsheetLocation finish = new SpreadsheetLocation(whichCell[1]);
+				int counter=0;
+				for(int i=start.getRow(); i<finish.getRow(); i++){
+					for(int j=start.getCol(); j<finish.getRow();j++){
+						sheet[i][j]=new EmptyCell();
+					}
+				}
+				
+				
+			}
+			if(spliff[3].toUpperCase().equals("SUM")){}
+			
+			//D4 = ( avg B3-C4 )
+			
+		} */
+		if(spliff.length>4){
+			if(spliff[3].equals("(")){
+				SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+				
+				sheet[low.getRow()][low.getCol()]=new TextCell(spliff[2]);
+				
+				return getGridText();
+			}
+		}
+		if(spliff[0].equals("CLEAR")){
+			if(spliff.length>1){
+				spliff[1]=spliff[1].toUpperCase();
+				SpreadsheetLocation low= new SpreadsheetLocation(spliff[1]);
+				sheet[low.getRow()][low.getCol()]=new EmptyCell();
+			}
+			else{
+				sheet=new Cell [20][12];
+				for(int i=0; i<20; i++){
+					for(int j=0; j<12;j++){
+						sheet[i][j]=new EmptyCell();
+					}
+				}
+			}
+			return getGridText();
+		}
+		else if(spliff.length==1){
+			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+			Cell aboutToInspect=getCell(low);
+			return aboutToInspect.fullCellText();
+		} else if(spliff[1].equals("=")){
+			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
+			
+			sheet[low.getRow()][low.getCol()]=new TextCell(spliff[2]);
+			
+			return getGridText();
+		}
+		
+		return "";
+	}
+
+	@Override
+	public int getRows()
+	{
+		// TODO Auto-generated method stub
+		return 20;
+	}
+
+	@Override
+	public int getCols()
+	{
+		// TODO Auto-generated method stub
+		return 12;
+	}
+
+	@Override
+	public Cell getCell(Location loc)
+	{
+		// TODO Auto-generated method stub
+		int a=loc.getRow();
+		int b=loc.getCol();
+		
+		
+		return sheet[a][b];
+	}
+
+	@Override
+	public String getGridText()
+	{
+		String griddy="   ";
+		for(char kkk='A'; kkk<='L'; kkk++){
+			griddy+="|"+kkk+"         ";
+		}
+		griddy+="|\n";
+		for(int i=0;i<20;i++){
+			String n=(i+1)+"   ";
+			griddy+=n.substring(0, 3);
+			for(int j=0;j<12;j++){
+				griddy+="|";
+				String s =sheet[i][j].abbreviatedCellText();
+				griddy+=s;
+			}
+			griddy+="|\n";	
+		}
+		// TODO Auto-generated method stub
+		return griddy;
+	}
+
+}
