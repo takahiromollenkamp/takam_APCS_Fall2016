@@ -21,6 +21,5 @@ public class ValueCell extends RealCell {
 		ball+="               ";
 		return ball.substring(0,10);
 	}
-	
 
 }

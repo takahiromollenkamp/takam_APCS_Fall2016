@@ -20,7 +20,7 @@ public class PercentCell extends RealCell {
 		return ball.substring(0,10);
 	}
 	public String fullCellText(){
-		return ""+getDoubleValue();
+		String ball=getCont();
 		
 	}
 }
