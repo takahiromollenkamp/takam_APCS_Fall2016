@@ -6,7 +6,7 @@ public class ValueCell extends RealCell {
 	}
 	public double getDoubleValue(){
 		String ball=getCont();
-		content.substring(1, content.length()-1);
+		
 		double kkkkkk=Double.parseDouble(ball);
 		return kkkkkk;
 	}

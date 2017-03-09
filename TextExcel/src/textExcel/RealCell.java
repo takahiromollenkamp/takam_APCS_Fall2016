@@ -8,7 +8,7 @@ public class RealCell implements Cell {
 	}
 	
 	public RealCell(String input){
-		content="\""+input+"\"";
+		content=input;
 	}
 	public double getDoubleValue(){
 		return 0;
