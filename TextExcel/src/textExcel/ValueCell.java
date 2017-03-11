@@ -14,13 +14,22 @@ public class ValueCell extends RealCell {
 		return kkkkkk;
 	}
 	public String abbreviatedCellText(){
-		String ball=getCont();
+		String ball=getCont();		
+		double kkkkkk=Double.parseDouble(ball);
+		ball=kkkkkk+"";
 		if(ball.indexOf(".")==-1){
 			ball+=(".0");
 		}
 		ball+="               ";
 		return ball.substring(0,10);
 	}
+	public String fullTextCell(){
+		String ball=getCont();
+		
+		return  getDoubleValue()+"";
+	}
+	
 	
 
 }
+
