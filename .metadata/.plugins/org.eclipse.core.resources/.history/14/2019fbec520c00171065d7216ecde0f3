@@ -1,0 +1,14 @@
+package textExcel;
+
+import textExcel.TestsALL.Helper;
+
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String a="F4,FormulaCell,( 2 + 1 * 7 )";
+		String b="F4,FormulaCell,( 2 + 1 * 7 )";
+		System.out.println(a.equals(b));
+	}
+
+}
