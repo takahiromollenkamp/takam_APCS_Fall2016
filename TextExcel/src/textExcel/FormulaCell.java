@@ -1,8 +1,50 @@
 package textExcel;
 
 public class FormulaCell extends RealCell {
+	
 	public FormulaCell(String enter){
 		super(enter);
+	}
+	public double getDoubleValue(){
+		String[] apple=fullCellText().split(" ");
+		//F4 = ( 2 + 1 * 7 )
+		double answer=0;
+		/*if(Character.isLetter(apple[1].charAt(0))){
+			SpreadsheetLocation fo=new SpreadsheetLocation(apple[1]);
+			Cell enter=Spreadsheet.getCell(fo);
+			
+			answer =((RealCell) enter).getDoubleValue();
+		}else{*/
+			answer =Double.parseDouble(apple[1]);
+		//}
+		for(int i=3; i<apple.length; i+=2){
+			double additional;
+			/*if(Character.isLetter(apple[i].charAt(0))){
+				SpreadsheetLocation fo = new SpreadsheetLocation(apple[1]);
+				Cell enter=Spreadsheet.getCell(fo);
+				
+				additional =((RealCell) enter).getDoubleValue();
+			} else{*/
+				additional=Double.parseDouble(apple[i]);
+			//}
+			if(apple[i-1].equals("+")){
+				answer+=additional;
+			}
+			if(apple[i-1].equals("-")){
+				answer-=additional;
+			}
+			if(apple[i-1].equals("*")){
+				answer*=additional;
+			}
+			if(apple[i-1].equals("/")){
+				answer/=additional;
+			}
+		}
+		return answer;
+	}
+	public String abbreviatedCellText(){
+		String output=getDoubleValue()+"                   ";
+		return output.substring(0, 10);
 	}
 }
 

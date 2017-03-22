@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Spreadsheet implements Grid
 {
-	private Cell[][] sheet;
+	private  Cell[][] sheet;
 	
 	public Spreadsheet(){
 		sheet=new Cell [20][12];
@@ -191,7 +191,7 @@ public class Spreadsheet implements Grid
 	}
 
 	@Override
-	public Cell getCell(Location loc)
+	public  Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
 		int a=loc.getRow();
@@ -214,6 +214,7 @@ public class Spreadsheet implements Grid
 			griddy+=n.substring(0, 3);
 			for(int j=0;j<12;j++){
 				griddy+="|";
+				
 				String s =sheet[i][j].abbreviatedCellText();
 				griddy+=s;
 			}
