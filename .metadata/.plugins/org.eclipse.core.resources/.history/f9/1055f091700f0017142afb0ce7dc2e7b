@@ -1,0 +1,71 @@
+package textExcel;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class FormulaCell extends RealCell {
+
+	public FormulaCell(String enter){
+		super(enter);
+	}
+	public double getCellFile(String location) throws FileNotFoundException{
+		Scanner input = new Scanner(new File("banana"));//directing where to find file
+		double solution;
+		while(input.hasNext()==true){
+			String call = input.nextLine();
+			String[] splitto=call.split(",");
+			splitto[0]=splitto[0].toUpperCase();
+			if(splitto[0].equals(location)){
+				solution=Double.parseDouble(splitto[2]);
+				return solution;
+			}
+		}
+		return 0;
+	}
+	public double getDoubleValue(){
+		String[] apple=fullCellText().split(" ");
+		double answer=0;
+		if(Character.isLetter(apple[1].charAt(0))){
+			try {
+				answer=getCellFile(apple[1]);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else{
+		answer =Double.parseDouble(apple[1]);
+		}
+		for(int i=3; i<apple.length; i+=2){
+			double additional;
+			if(Character.isLetter(apple[i].charAt(0))){
+				try {
+					answer=getCellFile(apple[i]);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			additional=Double.parseDouble(apple[i]);
+			if(apple[i-1].equals("+")){
+				answer+=additional;
+			}
+			if(apple[i-1].equals("-")){
+				answer-=additional;
+			}
+			if(apple[i-1].equals("*")){
+				answer*=additional;
+			}
+			if(apple[i-1].equals("/")){
+				answer/=additional;
+			}
+		}
+		return answer;
+	}
+	public String abbreviatedCellText(){
+		String output=getDoubleValue()+"                   ";
+		return output.substring(0, 10);
+	}
+}
+
+
+

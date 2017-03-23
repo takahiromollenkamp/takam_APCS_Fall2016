@@ -22,7 +22,6 @@ public class Spreadsheet implements Grid
 	public String open(String filename) throws FileNotFoundException{
 	
 		Scanner input = new Scanner(new File(filename));//directing where to find file
-		
 		while(input.hasNext()==true){
 			String call = input.nextLine();
 			String[] splitto=call.split(",");
@@ -109,6 +108,7 @@ public class Spreadsheet implements Grid
 			spliff[1]=spliff[1].toUpperCase();
 			SpreadsheetLocation low= new SpreadsheetLocation(spliff[0]);
 			sheet[low.getRow()][low.getCol()]=new PercentCell(spliff[2]);
+			save("banana");
 			return getGridText();
 		}
 		if(spliff.length>1){
@@ -132,6 +132,7 @@ public class Spreadsheet implements Grid
 					sheet[low.getRow()][low.getCol()]=new FormulaCell(putin);
 					
 				}
+				save("banana");
 				return getGridText();
 			}
 		}
@@ -151,6 +152,7 @@ public class Spreadsheet implements Grid
 					}
 				}
 			}
+			save("banana");
 			return getGridText();
 		}
 		else if(spliff.length==1){
@@ -169,7 +171,7 @@ public class Spreadsheet implements Grid
 			}
 			
 			sheet[low.getRow()][low.getCol()]=new TextCell(putin);
-			
+			save("banana");
 			return getGridText();
 		}
 		
